@@ -1,0 +1,94 @@
+resources:
+  - repo: self
+queue:
+  name: CK11-Linux-B1
+  demands: npm
+
+
+variables:
+  isMaster: $[eq(variables['Build.SourceBranchName'], 'master')]
+
+steps:
+
+  # app
+  - task: CmdLine@1
+    displayName: 'Установка зависимостей приложения'
+    inputs:
+      filename: npm
+      workingDir: './'
+      verbose: false
+      arguments: 'i'
+
+  - task: CmdLine@1
+    displayName: 'Сборка приложения'
+    inputs:
+      filename: npm
+      workingDir: './'
+      verbose: true
+      arguments: 'run build:release'
+
+  #end app
+
+  # endapp
+  - task: ArchiveFiles@2
+    displayName: 'Архивирование приложения'
+    inputs:
+      rootFolderOrFile: ./dist
+      includeRootFolder: false
+      archiveFile: ../a/$(Build.Repository.Name)-$(Build.BuildNumber).zip
+
+
+  - task: CmdLine@1
+    displayName: 'Загрузка Integration в хранилеще'
+    condition: and(succeeded(), eq(variables.isMaster, true))
+    inputs:
+      filename: python
+
+      arguments: '/home/administrator/.bin/smbcopy.py --share "//fs-ptg/$(targetFolder)/" --rpath "CK-11 Актуальная версия/Web"'
+
+      workingFolder: ../a
+
+  - task: CmdLine@1
+    displayName: 'Удаление старых сборок Integration  в хранилеще'
+    condition: and(succeeded(), eq(variables.isMaster, true))
+    inputs:
+      filename: python
+
+      arguments: '/home/administrator/.bin/remove_excess.py --server "//fs-ptg/$(targetFolder)/" --rpath "CK-11 Актуальная версия/Web" --prefix "$(Build.Repository.Name)" --N 2'
+
+      workingFolder: ../a
+
+
+  - task: CmdLine@1
+    displayName: 'Загрузка релиза в хранилеще'
+    condition: and(succeeded(), eq(variables.isMaster, false))
+    inputs:
+      filename: python
+
+      arguments: '/home/administrator/.bin/smbcopy.py --share "//fs-ptg/$(targetFolder)/" --rpath "CK-11 v$(Build.SourceBranchName)/Web"'
+
+      workingFolder: ../a
+
+  - task: CmdLine@1
+    displayName: 'Удаление старых сборок релиза в хранилеще'
+    condition: and(succeeded(), eq(variables.isMaster, false))
+    inputs:
+      filename: python
+
+      arguments: '/home/administrator/.bin/remove_excess.py --server "//fs-ptg/$(targetFolder)/" --rpath "CK-11 v$(Build.SourceBranchName)/Web" --prefix "$(Build.Repository.Name)" --N 2'
+
+      workingFolder: ../a
+
+
+
+  - script: rm -rfv *
+    workingDirectory: ../a/
+    displayName: 'Очистка после сбоки шаг 1'
+
+  - script: rm -rfv *
+    workingDirectory: ./
+    displayName: 'Очистка после сбоки шаг 2'
+
+  - script: send-bot --prgName=$(Build.Repository.Name) --number=$(Build.BuildNumber)
+    workingDirectory: ./
+    displayName: 'Оповещение о финале сборки'

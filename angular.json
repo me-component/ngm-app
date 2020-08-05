@@ -3,21 +3,25 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app-with-jest": {
+    "monitel-application": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush"
         }
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/app-with-jest",
+            "customWebpackConfig": {
+              "path": "./bin/getVersionApp.js"
+            },
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,11 +29,19 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/*.txt",
+              "src/appsettings.json",
+              "src/logo.png"
             ],
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/stylings"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -44,57 +56,41 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
+              "aot": true,
+              "resourcesOutputPath": "./assets",
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
+              "vendorChunk": true,
+              "buildOptimizer": true
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "app-with-jest:build"
+            "customWebpackConfig": {
+              "path": "./bin/getVersionApp.js"
+            },
+            "browserTarget": "monitel-application:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "app-with-jest:build:production"
+              "browserTarget": "monitel-application:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app-with-jest:build"
+            "browserTarget": "monitel-application:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "jestConfig": "jest.config.js",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "setupFile": "src/setupJest.ts"
           }
         },
         "lint": {
@@ -102,8 +98,7 @@
           "options": {
             "tsConfig": [
               "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -114,15 +109,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "app-with-jest:serve"
+            "devServerTarget": "monitel-application:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "app-with-jest:serve:production"
+              "devServerTarget": "monitel-application:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "app-with-jest"
+  "defaultProject": "monitel-application"
 }

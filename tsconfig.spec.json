@@ -3,8 +3,14 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
     "types": [
-      "jasmine"
+      "jest",
+      "jsdom",
+      "node",
+      "jest-extended"
     ]
   },
   "files": [

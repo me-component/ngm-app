@@ -1,20 +1,48 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "debug": true,
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": false
+  },
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
+    "allowJs": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "importHelpers": true,
+    "skipLibCheck": true,
     "target": "es2015",
     "module": "es2020",
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@typed-f",
+      "node_modules/@types/ramda"
+    ],
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "jszip": [
+        "./node_modules/jszip/dist/jszip.min.js"
+      ],
+      "@core/*": ["src/app/core/*"],
+      "@app/*": ["src/app/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@pipes/*": ["src/app/pipes/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@root/*": ["src/*"],
+      "@module/*": ["src/app/modules/*"],
+      "@component/*": ["src/app/components/*"],
+      "@env/*": ["src/environments/*"],
+      "@services/*": ["src/app/services/*"]
+    }
   }
 }

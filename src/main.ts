@@ -1,12 +1,24 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import 'reflect-metadata'
+import { AppModule } from '@app//app.module'
+import { environment } from '@env/environment'
 
 if (environment.production) {
-  enableProdMode();
+  enableProdMode()
 }
+environment.VERSION = VERSION
+console.log(
+  `%c WebMag %c  v${VERSION } %c`,
+  'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+  'background:#bada55 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #222;',
+  'background:transparent'
+)
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic()
+    .bootstrapModule(AppModule)
+    .catch(err => console.error(err))
+})
+
