@@ -32,7 +32,8 @@
               "src/assets",
               "src/*.txt",
               "src/appsettings.json",
-              "src/logo.png"
+              "src/logo.png",
+              "src/manifest.json"
             ],
             "styles": [
               "src/styles.scss"

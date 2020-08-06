@@ -16,6 +16,7 @@ console.log(
   'background:transparent'
 )
 
+
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic()
     .bootstrapModule(AppModule)
