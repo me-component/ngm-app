@@ -5,6 +5,8 @@ Jest [https://jestjs.io/][Jest],
 
 spectator [https://github.com/ngneat/spectator][spectator]
 
+ts-mockito [https://github.com/NagRock/ts-mockito][ts-mockito]
+
 Satndard-version [https://github.com/conventional-changelog/standard-version][Standard-version]
 
 Conventional Commits [https://www.conventionalcommits.org/ru][Conventional Commits]
@@ -22,3 +24,4 @@ Commitizen [https://github.com/commitizen/cz-cli][Commitizen]
 [Commitizen]: https://github.com/commitizen/cz-cli
 [spectator]: https://github.com/ngneat/spectator
 [servor]: https://github.com/lukejacksonn/servor
+[ts-mockito]: https://github.com/NagRock/ts-mockito
