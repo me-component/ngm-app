@@ -8,6 +8,7 @@ for (const key of Object.keys(customModulePaths)) {
 }*/
 
 module.exports = {
+
   globals: {
     'ts-jest': {
       tsConfig: '<rootDir>/tsconfig.spec.json',
@@ -46,5 +47,6 @@ module.exports = {
     'jest-preset-angular/build/HTMLCommentSerializer.js'
   ],
   coverageReporters: ['html'],
-  setupFilesAfterEnv: ['<rootDir>/test-config/setupJest.ts']
+  setupFilesAfterEnv: ['<rootDir>/test-config/setupJest.ts'],
+
 };

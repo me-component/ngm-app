@@ -9,4 +9,8 @@ export class AppComponent {
   title = 'app-with-jest'
 
 
+  isTrue (arg = null): boolean {
+
+    return (arg > 2) ? true : false
+  }
 }

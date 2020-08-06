@@ -2,6 +2,9 @@ import { TestBed, async } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 import { AppComponent } from './app.component'
 
+let component
+let componentDOM
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,23 +17,35 @@ describe('AppComponent', () => {
     }).compileComponents()
   }))
 
-  it('should create the app', () => {
+  beforeEach(() => {
     const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app).toBeTruthy()
+    component = fixture.componentInstance
+  })
+
+  beforeEach(() => {
+    const fixture = TestBed.createComponent(AppComponent)
+    fixture.detectChanges()
+    componentDOM = fixture.nativeElement
+  })
+
+  it('should create the app', () => {
+    /*const fixture = TestBed.createComponent(AppComponent)
+    const app = fixture.componentInstance*/
+    expect(component).toBeTruthy()
+  })
+
+  it('shold return true method isTrue', () => {
+    expect(component.isTrue(4)).toBe(true)
   })
 
   it(`should have as title 'app-with-jest'`, () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.componentInstance
-    expect(app.title).toEqual('app-with-jest')
+    expect(component.title).toEqual('app-with-jest')
   })
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-    const compiled = fixture.nativeElement
-    expect(compiled.querySelector('.content span').textContent).toContain('app-with-jest app is running!')
+
+    expect(componentDOM.querySelector('.title span').textContent)
+      .toContain('app-with-jest app is running!')
   })
 
   it('jest matcher one of', () => {

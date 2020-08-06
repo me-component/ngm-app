@@ -58,6 +58,7 @@
     "@babel/preset-env": "^7.11.0",
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@ngneat/spectator": "^5.13.0",
     "@typed-f/function": "^0.3.8",
     "@types/downloadjs": "^1.4.2",
     "@types/jasmine": "~3.5.0",

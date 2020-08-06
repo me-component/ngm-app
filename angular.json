@@ -121,6 +121,17 @@
           }
         }
       }
-    }},
-  "defaultProject": "monitel-application"
+    }
+  },
+  "defaultProject": "monitel-application",
+  "schematics": {
+    "@ngneat/spectator:spectator-component": {
+      "jest": true,
+      "style": "scss",
+      "changeDetection": "OnPush"
+    }
+  },
+  "cli": {
+    "defaultCollection": "@ngneat/spectator"
+  }
 }
