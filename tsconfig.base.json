@@ -12,6 +12,7 @@
     "sourceMap": true,
     "declaration": false,
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
