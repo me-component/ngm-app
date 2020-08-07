@@ -1,6 +1,6 @@
 {
   "name": "NAME_YOR_APP",
-  "version": "11.6.3-0",
+  "version": "11.6.3",
   "aliasName": "mywebmag",
   "title": "Название приложения",
   "scripts": {
@@ -58,6 +58,7 @@
     "@babel/preset-env": "^7.11.0",
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@compodoc/compodoc": "^1.1.11",
     "@ngneat/spectator": "^5.13.0",
     "@typed-f/function": "^0.3.8",
     "@types/downloadjs": "^1.4.2",
