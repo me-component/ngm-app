@@ -1,6 +1,7 @@
 /* SystemJS module definition */
 declare var module: NodeModule
 declare var VERSION: string
+declare var ALIAS_NAME: string
 interface NodeModule {
   id: string
 }

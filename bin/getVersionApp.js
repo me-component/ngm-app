@@ -5,11 +5,11 @@ const webpack = require('webpack');
 const app = require('./my-app');
 
 
-console.log('version', app.version);
 module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       VERSION: app.version,
+      ALIAS_NAME: app.aliasName
     })
   ]
 }
