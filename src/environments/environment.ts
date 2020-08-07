@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   VERSION: '',
-  ALIAS_NAME: ''
+  ALIAS_NAME: '',
+  TITLE: '',
 }
 
 /*

@@ -6,7 +6,7 @@ import { environment as env } from 'src/environments/environment'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app-with-jest'
+  title = env.TITLE
 
   version: string = env.VERSION
 

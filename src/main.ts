@@ -9,8 +9,9 @@ import { environment } from '@env/environment'
 if (environment.production) {
   enableProdMode()
 }
-environment.VERSION = `'${VERSION}'`
-environment.ALIAS_NAME = `'${ALIAS_NAME}'`
+environment.VERSION = VERSION
+environment.ALIAS_NAME = ALIAS_NAME
+environment.TITLE = TITLE
 
 
 console.log(

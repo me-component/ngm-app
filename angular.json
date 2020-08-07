@@ -36,11 +36,11 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/scss/global-styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/stylings"
+                "src/styles"
               ]
             },
             "scripts": []
@@ -132,6 +132,7 @@
     }
   },
   "cli": {
-    "defaultCollection": "@ngneat/spectator"
+    "defaultCollection": "@ngneat/spectator",
+    "analytics": false
   }
 }

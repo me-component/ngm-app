@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../../assets/roboto/roboto.css";
+@import "utils";
+@import "shadow";
+@import "media";
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  transition: color 0.5s, background-color 0.5s, box-shadow 0.5s, opacity 0.5s, left .7s, width .7s;;
+}
+
+:root {
+  overflow: hidden;
+  height: 100%;
+  font-family: "Roboto";
+  // font-family: "system";
+  font-weight: 300;
+  font-size: 10px;
+}
+
+body {
+  padding: 0rem;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  transition: height .2s ease-out;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: #fcfcfd;
+  -webkit-box-shadow: 0 0 0px 1000px #2b3340 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
