@@ -1,6 +1,6 @@
 {
   "name": "NAME_YOR_APP",
-  "version": "11.6.3",
+  "version": "11.6.3-0",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -2317,6 +2317,11 @@
         "is-absolute": "^1.0.0",
         "is-negated-glob": "^1.0.0"
       }
+    },
+    "@gewd/ng-utils": {
+      "version": "0.2.2",
+      "resolved": "https://registry.npmjs.org/@gewd/ng-utils/-/ng-utils-0.2.2.tgz",
+      "integrity": "sha512-/VBAEem5S8tFvuCIWyiTNxs/OYKtv9xF72dMwUzlneIRGy8meZI6q1yEMjHBVtWaYNWUlQIgw2iNrgh6xuiXUQ=="
     },
     "@istanbuljs/load-nyc-config": {
       "version": "1.1.0",
