@@ -6,19 +6,19 @@
   "scripts": {
     "ng": "./node_modules/.bin/ng",
     "start": "./node_modules/.bin/ng serve",
-    "build": "./bin/build-release.js",
-    "build:release": "./bin/build-release.js && ./bin/makeVersionFile.js",
+    "build": "node ./bin/build-release.js",
+    "build:release": "node ./bin/build-release.js && node ./bin/makeVersionFile.js",
     "test": "./node_modules/.bin/ng test",
     "test:watch": "./node_modules/.bin/jest --watch",
     "test:ci": "./node_modules/.bin/jest --runInBand",
     "lint": "./node_modules/.bin/ng lint",
     "e2e": "./node_modules/.bin/ng e2e",
-    "lint:fix": "tslint ./src/**/*.{ts,tsx} --fix",
+    "lint:fix": "tslint --fix src/**/*.ts -t verbose",
     "post-install": "ngcc",
     "doc": "./node_modules/@compodoc/compodoc/bin/index-cli.js -p src/tsconfig.app.json -s\n",
-    "release": "./bin/release.js",
+    "release": "node ./bin/release.js",
     "check:package": "./node_modules/.bin/ncu",
-    "server": "./bin/server.js"
+    "server": "node ./bin/server.js"
   },
   "husky": {
     "hooks": {
@@ -38,6 +38,7 @@
     "@angular/pwa": "^0.1000.5",
     "@angular/router": "~10.0.5",
     "@angular/service-worker": "~10.0.5",
+    "@gewd/ng-utils": "^0.2.2",
     "date-fns": "^2.15.0",
     "downloadjs": "^1.4.7",
     "hammerjs": "^2.0.8",
