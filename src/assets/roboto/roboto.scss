@@ -1,14 +1,15 @@
+
 @supports (font-variation-settings: 'wdth' 100) {
   @font-face {
     /* https://github.com/TypeNetwork/Amstelvar */
     font-family: 'Roboto';
-    src: url('Roboto-VF.ttf') format("truetype");
+    src: url('Roboto-VF.ttf') format("truetype") ;
     font-weight: 100;
     font-style: normal;
   }
 
   #font-robotovar {
-    font-family: AmstelvarAlpha;
+    font-family: Roboto;
     font-variation-settings: 'wdth' 300, 'wght' 98;
   }
 }
@@ -22,7 +23,7 @@
   }
 
   #font-robotovar {
-    font-family: AmstelvarAlpha;
+    font-family: Roboto;
     font-variation-settings: 'wdth' 300, 'wght' 98;
   }
 }
@@ -37,7 +38,7 @@
   }
 
   #font-robotovar {
-    font-family: AmstelvarAlpha;
+    font-family: Roboto;
     font-variation-settings: 'wdth' 300, 'wght' 98;
   }
 }
@@ -51,7 +52,7 @@
   }
 
   #font-robotovar {
-    font-family: AmstelvarAlpha;
+    font-family: Roboto;
     font-variation-settings: 'wdth' 300, 'wght' 98;
   }
 }
@@ -66,7 +67,7 @@
   }
 
   #font-robotovar {
-    font-family: AmstelvarAlpha;
+    font-family: Roboto;
     font-variation-settings: 'wdth' 300, 'wght' 98;
   }
 }
@@ -81,7 +82,7 @@
   }
 
   #font-robotovar {
-    font-family: AmstelvarAlpha;
+    font-family: Roboto;
     font-variation-settings: 'wdth' 300, 'wght' 98;
   }
 }
@@ -96,7 +97,7 @@
   }
 
   #font-robotovar {
-    font-family: AmstelvarAlpha;
+    font-family: Roboto;
     font-variation-settings: 'wdth' 300, 'wght' 98;
   }
 }

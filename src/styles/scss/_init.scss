@@ -5,13 +5,23 @@
   box-sizing: border-box;
   transition: color 0.5s, background-color 0.5s, box-shadow 0.5s, opacity 0.5s, left .7s, width .7s;;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 :root {
   overflow: hidden;
   height: 100%;
+
+}
+
+html {
   font-family: "Roboto";
-  // font-family: "system";
+  //font-family: "system";
   font-weight: 300;
+  font-variation-settings: "wght" 350;
   font-size: 10px;
 }
 
@@ -28,7 +38,7 @@ body {
   backface-visibility: hidden;
   text-rendering: auto; // optimizelegibility throws things off #1094
   transition: height .2s ease-out;
-  background: #f9f9f9;
+  background: #FAFAFA;
   overflow: hidden;
 }
 

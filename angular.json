@@ -36,11 +36,14 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles/scss/global-styles.scss"
+              "src/styles/scss/global-styles.scss",
+              "src/styles.scss"
+
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src/styles",
+                "src/styles/scss"
               ]
             },
             "scripts": []
