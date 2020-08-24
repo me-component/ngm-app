@@ -13,13 +13,15 @@ import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/com
 import {NotFoundComponent} from '@pages/not-found.component'
 import {IndexComponent} from '@pages/index/index.component'
 import {SkeletonModule} from '@core/skeleton/skeleton.module'
+import { AboutComponent } from './pages/about/about.component'
 // END PAGE
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

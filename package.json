@@ -43,6 +43,7 @@
     "downloadjs": "^1.4.7",
     "hammerjs": "^2.0.8",
     "hotkeys-js": "^3.8.1",
+    "path-to-regexp": "^6.1.0",
     "ramda": "^0.27.1",
     "ramda-extension": "^0.10.3",
     "rxjs": "~6.5.5",

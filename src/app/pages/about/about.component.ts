@@ -2,20 +2,18 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import {ActivatedRoute} from '@angular/router'
 
 @Component({
-  selector: 'index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss'],
+  selector: 'about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IndexComponent implements OnInit {
+export class AboutComponent implements OnInit {
 
   constructor (private activateRoute: ActivatedRoute) {
 
-    console.log('IndexComponent', activateRoute.snapshot.params)
+    console.log('AboutComponent', activateRoute.snapshot.params)
   }
 
-
-  title: string = 'ПРивет'
   ngOnInit (): void {
   }
 
